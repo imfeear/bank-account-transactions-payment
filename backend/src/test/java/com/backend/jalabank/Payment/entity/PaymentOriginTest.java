@@ -2,6 +2,9 @@ package com.backend.jalabank.Payment.entity;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import com.backend.newbank.Payment.entity.PaymentOrigin;
+
 import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;

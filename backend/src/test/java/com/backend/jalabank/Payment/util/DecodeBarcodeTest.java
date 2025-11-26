@@ -3,6 +3,8 @@ package com.backend.jalabank.Payment.util;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
+import com.backend.newbank.Payment.util.DecodeBarcode;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class DecodeBarcodeTest {

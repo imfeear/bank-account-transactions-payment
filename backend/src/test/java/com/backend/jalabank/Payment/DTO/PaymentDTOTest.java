@@ -3,6 +3,8 @@ package com.backend.jalabank.Payment.DTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import com.backend.newbank.Payment.DTO.PaymentDTO;
+
 import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.*;

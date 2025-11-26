@@ -1,19 +1,20 @@
 package com.backend.jalabank.AccountTransactionTests;
 
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.CadastroRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.LoginRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.ResponseLoginDTO;
-import com.backend.jalabank.AccountTransaction.entity.Enum.Person_type;
-import com.backend.jalabank.AccountTransaction.repository.AdressRepository;
-import com.backend.jalabank.AccountTransaction.repository.LegalEntityRespository;
-import com.backend.jalabank.AccountTransaction.repository.NaturalPersonRepository;
-import com.backend.jalabank.AccountTransaction.repository.PersonRepository;
-import com.backend.jalabank.AccountTransaction.service.AuthService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.CadastroRequestDTO;
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.LoginRequestDTO;
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.ResponseLoginDTO;
+import com.backend.newbank.AccountTransaction.entity.Enum.Person_type;
+import com.backend.newbank.AccountTransaction.repository.AdressRepository;
+import com.backend.newbank.AccountTransaction.repository.LegalEntityRespository;
+import com.backend.newbank.AccountTransaction.repository.NaturalPersonRepository;
+import com.backend.newbank.AccountTransaction.repository.PersonRepository;
+import com.backend.newbank.AccountTransaction.service.AuthService;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

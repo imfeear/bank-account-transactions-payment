@@ -1,14 +1,15 @@
-package com.backend.jalabank.AccountTransaction.controller;
+package com.backend.newbank.AccountTransaction.controller;
 
-import com.backend.jalabank.AccountTransaction.DTO.AccountDTO.BalanceDetailsDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AccountDTO.UpdateAccountDTO;
-import com.backend.jalabank.Payment.entity.PixKey;
-import com.backend.jalabank.AccountTransaction.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import com.backend.newbank.AccountTransaction.DTO.AccountDTO.BalanceDetailsDTO;
+import com.backend.newbank.AccountTransaction.DTO.AccountDTO.UpdateAccountDTO;
+import com.backend.newbank.AccountTransaction.service.AccountService;
+import com.backend.newbank.Payment.entity.PixKey;
 
 import java.util.HashMap;
 import java.util.List;

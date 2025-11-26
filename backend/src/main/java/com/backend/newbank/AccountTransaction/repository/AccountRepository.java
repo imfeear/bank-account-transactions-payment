@@ -1,10 +1,11 @@
-package com.backend.jalabank.AccountTransaction.repository;
+package com.backend.newbank.AccountTransaction.repository;
 
-import com.backend.jalabank.AccountTransaction.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import com.backend.newbank.AccountTransaction.entity.Account;
 
 import java.sql.Timestamp;
 import java.util.Optional;

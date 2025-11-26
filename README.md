@@ -1,6 +1,6 @@
-# JalaBank
+# NewBank
 
-JalaBank is a full-stack web application that simulates the core
+NewBank is a full-stack web application that simulates the core
 operations of a modern digital banking system.\
 The project includes modules for **account management**,
 **transactions**, **payments**, **authentication**, and **user data
@@ -86,8 +86,8 @@ Follow the steps below to run the project locally.
 ### **1. Clone the repository**
 
 ``` bash
-git clone https://github.com/your-username/jalabank.git
-cd jalabank
+git clone https://github.com/your-username/bank-account-transactions-payment.git
+cd bank-account-transactions-payment
 ```
 
 ------------------------------------------------------------------------
@@ -161,10 +161,10 @@ Frontend available at:
 
 ## 📁 Project Folder Structure
 
-    jalabank/
+    newbank/
     │
     ├── backend/
-    │   ├── src/main/java/com/backend/jalabank/
+    │   ├── src/main/java/com/backend/newbank/
     │   ├── src/main/resources/
     │   ├── pom.xml
     │   └── ...

@@ -1,4 +1,4 @@
-package com.backend.jalabank.Payment.config;
+package com.backend.newbank.Payment.config;
 
 import com.aspose.barcode.generation.BarcodeGenerator;
 import com.aspose.barcode.EncodeTypes;

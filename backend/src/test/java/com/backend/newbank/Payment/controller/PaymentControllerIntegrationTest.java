@@ -1,7 +1,8 @@
-/*package com.backend.jalabank.Payment.controller;
+package com.backend.newbank.Payment.controller;
+/*package com.backend.newbank.Payment.controller;
 
-import com.backend.jalabank.Payment.config.BarCode;
-import com.backend.jalabank.Payment.service.PaymentService;
+import com.backend.newbank.Payment.config.BarCode;
+import com.backend.newbank.Payment.service.PaymentService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

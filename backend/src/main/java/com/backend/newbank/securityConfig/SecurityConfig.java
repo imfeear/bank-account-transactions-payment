@@ -1,4 +1,4 @@
-package com.backend.jalabank.securityConfig;
+package com.backend.newbank.securityConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

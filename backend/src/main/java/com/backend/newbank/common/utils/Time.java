@@ -1,4 +1,4 @@
-package com.backend.jalabank.common.utils;
+package com.backend.newbank.common.utils;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;

@@ -1,10 +1,11 @@
-package com.backend.jalabank.AccountTransaction.entity;
+package com.backend.newbank.AccountTransaction.entity;
 
-import com.backend.jalabank.AccountTransaction.entity.Enum.Person_type;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
+
+import com.backend.newbank.AccountTransaction.entity.Enum.Person_type;
 
 @Data
 @Entity

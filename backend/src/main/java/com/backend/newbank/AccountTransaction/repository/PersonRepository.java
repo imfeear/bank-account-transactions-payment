@@ -1,9 +1,10 @@
-package com.backend.jalabank.AccountTransaction.repository;
+package com.backend.newbank.AccountTransaction.repository;
 
-import com.backend.jalabank.AccountTransaction.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import com.backend.newbank.AccountTransaction.entity.Person;
 
 import java.math.BigDecimal;
 import java.util.Optional;

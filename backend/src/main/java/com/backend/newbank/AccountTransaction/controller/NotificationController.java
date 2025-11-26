@@ -1,11 +1,12 @@
-package com.backend.jalabank.AccountTransaction.controller;
+package com.backend.newbank.AccountTransaction.controller;
 
-import com.backend.jalabank.AccountTransaction.DTO.NotificationDTO.ResponseNotificationDTO;
-import com.backend.jalabank.AccountTransaction.service.NotificationsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import com.backend.newbank.AccountTransaction.DTO.NotificationDTO.ResponseNotificationDTO;
+import com.backend.newbank.AccountTransaction.service.NotificationsService;
 
 import java.util.List;
 

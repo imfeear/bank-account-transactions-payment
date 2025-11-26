@@ -1,4 +1,4 @@
-package com.backend.jalabank.Payment.util;
+package com.backend.newbank.Payment.util;
 
 import lombok.experimental.UtilityClass;
 

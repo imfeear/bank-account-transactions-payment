@@ -1,4 +1,4 @@
-package com.backend.jalabank.Payment.util;
+package com.backend.newbank.Payment.util;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
@@ -37,14 +37,15 @@ class DecodeBarcodeTest {
         assertThrows(NumberFormatException.class, executable, "Era esperada uma exceção de número inválido para caracteres não numéricos.");
     }
 
-    @Test
-    void testFromAsciiCodeWithOutOfRangeValues() {
-        String outOfRangeBarcode = "256100100"; // Valor 256 excede o limite do ASCII (0-255)
+        @Test
+        void testFromAsciiCodeWithOutOfRangeValues() {
+            String outOfRangeBarcode = "256100100"; // Valor 256 excede o limite do ASCII (0-255)
 
-        Executable executable = () -> DecodeBarcode.fromAsciiCode(outOfRangeBarcode);
+            Executable executable = () -> DecodeBarcode.fromAsciiCode(outOfRangeBarcode);
 
-        assertThrows(NumberFormatException.class, executable, "Era esperada uma exceção de valor fora do intervalo ASCII.");
-    }
+            assertThrows(NumberFormatException.class, executable,
+                "Era esperada uma exceção de valor fora do intervalo ASCII.");
+        }
 
     @Test
     void testFromAsciiCodeWithEmptyString() {

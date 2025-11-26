@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.DTO.AuthDTOS;
+package com.backend.newbank.AccountTransaction.DTO.AuthDTOS;
 
 public record ResponseLoginDTO(String username,
                                String accountAndAgency,

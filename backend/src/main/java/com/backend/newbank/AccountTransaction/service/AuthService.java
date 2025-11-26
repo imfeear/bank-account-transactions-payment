@@ -1,19 +1,20 @@
-package com.backend.jalabank.AccountTransaction.service;
+package com.backend.newbank.AccountTransaction.service;
 
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.CadastroRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.LoginRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.ResponseLoginDTO;
-import com.backend.jalabank.AccountTransaction.entity.*;
-import com.backend.jalabank.AccountTransaction.entity.Enum.Person_type;
-import com.backend.jalabank.AccountTransaction.repository.*;
-import com.backend.jalabank.exception.WrongPasswordException;
-import com.backend.jalabank.securityConfig.TokenJWTService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.CadastroRequestDTO;
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.LoginRequestDTO;
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.ResponseLoginDTO;
+import com.backend.newbank.AccountTransaction.entity.*;
+import com.backend.newbank.AccountTransaction.entity.Enum.Person_type;
+import com.backend.newbank.AccountTransaction.repository.*;
+import com.backend.newbank.exception.WrongPasswordException;
+import com.backend.newbank.securityConfig.TokenJWTService;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

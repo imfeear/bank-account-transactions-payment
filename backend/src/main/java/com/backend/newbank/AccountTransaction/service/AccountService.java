@@ -1,12 +1,4 @@
-package com.backend.jalabank.AccountTransaction.service;
-
-import com.backend.jalabank.AccountTransaction.DTO.AccountDTO.BalanceDetailsDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AccountDTO.UpdateAccountDTO;
-import com.backend.jalabank.AccountTransaction.entity.*;
-import com.backend.jalabank.AccountTransaction.entity.Enum.Person_type;
-import com.backend.jalabank.AccountTransaction.repository.*;
-import com.backend.jalabank.Payment.entity.PixKey;
-import com.backend.jalabank.Payment.repository.PixKeyRepository;
+package com.backend.newbank.AccountTransaction.service;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -15,6 +7,14 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.backend.newbank.AccountTransaction.DTO.AccountDTO.BalanceDetailsDTO;
+import com.backend.newbank.AccountTransaction.DTO.AccountDTO.UpdateAccountDTO;
+import com.backend.newbank.AccountTransaction.entity.*;
+import com.backend.newbank.AccountTransaction.entity.Enum.Person_type;
+import com.backend.newbank.AccountTransaction.repository.*;
+import com.backend.newbank.Payment.entity.PixKey;
+import com.backend.newbank.Payment.repository.PixKeyRepository;
 
 import java.math.BigDecimal;
 import java.util.List;

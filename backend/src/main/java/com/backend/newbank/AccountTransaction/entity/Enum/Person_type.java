@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.entity.Enum;
+package com.backend.newbank.AccountTransaction.entity.Enum;
 
 public enum Person_type {
     fisica,

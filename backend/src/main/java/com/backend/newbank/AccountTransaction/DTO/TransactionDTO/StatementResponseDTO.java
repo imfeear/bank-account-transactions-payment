@@ -1,9 +1,9 @@
-package com.backend.jalabank.AccountTransaction.DTO.TransactionDTO;
-
-import com.backend.jalabank.AccountTransaction.entity.Transaction;
+package com.backend.newbank.AccountTransaction.DTO.TransactionDTO;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import com.backend.newbank.AccountTransaction.entity.Transaction;
 
 public record StatementResponseDTO(
         Long id,

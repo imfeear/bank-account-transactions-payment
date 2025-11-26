@@ -1,9 +1,10 @@
-package com.backend.jalabank.Payment.service;
+package com.backend.newbank.Payment.service;
 
-import com.backend.jalabank.Payment.entity.PaymentStatus;
-import com.backend.jalabank.Payment.repository.PaymentStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.backend.newbank.Payment.entity.PaymentStatus;
+import com.backend.newbank.Payment.repository.PaymentStatusRepository;
 
 import java.util.List;
 

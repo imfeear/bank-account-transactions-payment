@@ -1,11 +1,12 @@
+package com.backend.newbank.Payment.controller;
 /*
-package com.backend.jalabank.Payment.controller;
+package com.backend.newbank.Payment.controller;
 
-import com.backend.jalabank.AccountTransaction.repository.AccountRepository;
-import com.backend.jalabank.Payment.config.BarCode;
-import com.backend.jalabank.Payment.service.PaymentService;
-import com.backend.jalabank.securityConfig.SecurityConfig;
-import com.backend.jalabank.securityConfig.TokenJWTService;
+import com.backend.newbank.AccountTransaction.repository.AccountRepository;
+import com.backend.newbank.Payment.config.BarCode;
+import com.backend.newbank.Payment.service.PaymentService;
+import com.backend.newbank.securityConfig.SecurityConfig;
+import com.backend.newbank.securityConfig.TokenJWTService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

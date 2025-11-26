@@ -1,10 +1,11 @@
-package com.backend.jalabank.Payment.repository;
+package com.backend.newbank.Payment.repository;
 
-import com.backend.jalabank.Payment.entity.Payment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.backend.newbank.Payment.entity.Payment;
 
 import java.util.List;
 

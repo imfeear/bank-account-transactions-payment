@@ -1,8 +1,10 @@
-package com.backend.jalabank.AccountTransaction.repository;
+package com.backend.newbank.AccountTransaction.repository;
 
 
-import com.backend.jalabank.common.entity.Status;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.backend.newbank.common.entity.Status;
+
 import java.util.Optional;
 
 public interface StatusBankRepository extends JpaRepository<Status, Long> {

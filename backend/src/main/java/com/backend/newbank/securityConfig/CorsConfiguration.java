@@ -1,4 +1,4 @@
-package com.backend.jalabank.securityConfig;
+package com.backend.newbank.securityConfig;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

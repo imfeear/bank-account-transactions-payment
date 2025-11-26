@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.DTO.NotificationDTO;
+package com.backend.newbank.AccountTransaction.DTO.NotificationDTO;
 
 import java.sql.Timestamp;
 

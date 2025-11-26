@@ -1,4 +1,4 @@
-package com.backend.jalabank.Payment.entity;
+package com.backend.newbank.Payment.entity;
 
 import jakarta.persistence.*;
 

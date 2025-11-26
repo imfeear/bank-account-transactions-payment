@@ -1,9 +1,5 @@
-package com.backend.jalabank.AccountTransaction.controller;
+package com.backend.newbank.AccountTransaction.controller;
 
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.CadastroRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.LoginRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AuthDTOS.ResponseLoginDTO;
-import com.backend.jalabank.AccountTransaction.service.AuthService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +9,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.CadastroRequestDTO;
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.LoginRequestDTO;
+import com.backend.newbank.AccountTransaction.DTO.AuthDTOS.ResponseLoginDTO;
+import com.backend.newbank.AccountTransaction.service.AuthService;
 
 import java.util.HashMap;
 import java.util.Map;

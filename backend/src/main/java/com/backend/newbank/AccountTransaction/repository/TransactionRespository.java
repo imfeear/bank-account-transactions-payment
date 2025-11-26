@@ -1,7 +1,8 @@
-package com.backend.jalabank.AccountTransaction.repository;
+package com.backend.newbank.AccountTransaction.repository;
 
-import com.backend.jalabank.AccountTransaction.entity.Transaction;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.backend.newbank.AccountTransaction.entity.Transaction;
 
 import java.util.List;
 

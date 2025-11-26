@@ -1,13 +1,14 @@
-package com.backend.jalabank.Payment.entity;
+package com.backend.newbank.Payment.entity;
 
 import jakarta.persistence.*;
 import jdk.jfr.Timestamp;
 import lombok.*;
-import com.backend.jalabank.AccountTransaction.entity.Account;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+
+import com.backend.newbank.AccountTransaction.entity.Account;
 
 @Entity
 @Table(name = "payment")

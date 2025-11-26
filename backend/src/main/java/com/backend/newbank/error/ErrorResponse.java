@@ -1,4 +1,4 @@
-package com.backend.jalabank.error;
+package com.backend.newbank.error;
 
 
 import lombok.AllArgsConstructor;

@@ -1,18 +1,19 @@
-package com.backend.jalabank.Payment.controller;
+package com.backend.newbank.Payment.controller;
 
 
-import com.backend.jalabank.Payment.DTO.BarcodeDTO;
-import com.backend.jalabank.Payment.DTO.PaymentDTO;
-import com.backend.jalabank.Payment.entity.Payment;
-import com.backend.jalabank.Payment.repository.PixKeyRepository;
-import com.backend.jalabank.Payment.service.PaymentService;
-import com.backend.jalabank.Payment.util.BarcodeGenerator;
-import com.backend.jalabank.Payment.util.FillData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import com.backend.newbank.Payment.DTO.BarcodeDTO;
+import com.backend.newbank.Payment.DTO.PaymentDTO;
+import com.backend.newbank.Payment.entity.Payment;
+import com.backend.newbank.Payment.repository.PixKeyRepository;
+import com.backend.newbank.Payment.service.PaymentService;
+import com.backend.newbank.Payment.util.BarcodeGenerator;
+import com.backend.newbank.Payment.util.FillData;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;

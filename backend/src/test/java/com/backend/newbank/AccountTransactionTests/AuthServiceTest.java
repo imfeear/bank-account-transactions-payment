@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransactionTests;
+package com.backend.newbank.AccountTransactionTests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

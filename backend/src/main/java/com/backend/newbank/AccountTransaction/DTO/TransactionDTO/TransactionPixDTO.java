@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.DTO.TransactionDTO;
+package com.backend.newbank.AccountTransaction.DTO.TransactionDTO;
 
 public class TransactionPixDTO {
     private String destinationPixKey; // Chave PIX de destino

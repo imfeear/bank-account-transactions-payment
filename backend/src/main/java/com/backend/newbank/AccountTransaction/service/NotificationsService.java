@@ -1,16 +1,17 @@
-package com.backend.jalabank.AccountTransaction.service;
+package com.backend.newbank.AccountTransaction.service;
 
-import com.backend.jalabank.AccountTransaction.DTO.NotificationDTO.ResponseNotificationDTO;
-import com.backend.jalabank.AccountTransaction.entity.Account;
-import com.backend.jalabank.AccountTransaction.entity.Notification;
-import com.backend.jalabank.AccountTransaction.repository.AccountRepository;
-import com.backend.jalabank.AccountTransaction.repository.NotificationRespository;
-import com.backend.jalabank.exception.EmptyListException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.backend.newbank.AccountTransaction.DTO.NotificationDTO.ResponseNotificationDTO;
+import com.backend.newbank.AccountTransaction.entity.Account;
+import com.backend.newbank.AccountTransaction.entity.Notification;
+import com.backend.newbank.AccountTransaction.repository.AccountRepository;
+import com.backend.newbank.AccountTransaction.repository.NotificationRespository;
+import com.backend.newbank.exception.EmptyListException;
 
 import java.util.List;
 import java.util.stream.Collectors;

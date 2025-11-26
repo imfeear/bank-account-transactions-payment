@@ -1,11 +1,12 @@
-package com.backend.jalabank.Payment.util;
+package com.backend.newbank.Payment.util;
 
 
-import com.backend.jalabank.Payment.DTO.PaymentDTO;
 import lombok.experimental.UtilityClass;
 
 
 import java.math.BigDecimal;
+
+import com.backend.newbank.Payment.DTO.PaymentDTO;
 
 @UtilityClass
 public class FillData {

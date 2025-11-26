@@ -4,6 +4,12 @@ import Image from "next/image";
 import { FC, useEffect, useState, FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import logo from "@/images/bank.png";
+import { Montserrat } from "next/font/google";
+
+  const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["600"], // ou 500/700, como preferir
+});
 
 const Login: FC = () => {
   const [accountAndAgency, setAccountAndAgency] = useState<string>("");
@@ -70,14 +76,21 @@ const Login: FC = () => {
       </div>
       <div className="flex items-center justify-center h-screen w-full px-4">
         <div className="w-full max-w-[32rem] py-16 sm:py-20 px-8 sm:px-14 rounded-lg shadow-xl text-center bg-[#708090]">
-          <Image
-            src={logo}
-            alt="New Bank Logo"
-            width={100}
-            height={100}
-            className="mx-auto mb-4 sm:mb-6 object-contain"
-            priority
-          />
+          <div className="flex items-center justify-center gap-3 mb-4 sm:mb-6">
+            <Image
+              src={logo}
+              alt="New Bank Logo"
+              width={60}
+              height={60}
+              className="object-contain"
+              priority
+            />
+            <span
+              className={`${montserrat.className} text-white text-2xl sm:text-3xl tracking-wide`}
+            >
+              NewBank
+            </span>
+          </div>
           <h2 className="text-white text-xl sm:text-2xl mb-4">
             Bem vindo(a) de volta.
             <br />

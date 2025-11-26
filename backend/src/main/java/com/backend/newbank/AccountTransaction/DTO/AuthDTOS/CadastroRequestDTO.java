@@ -1,12 +1,13 @@
-package com.backend.jalabank.AccountTransaction.DTO.AuthDTOS;
+package com.backend.newbank.AccountTransaction.DTO.AuthDTOS;
 
-import com.backend.jalabank.AccountTransaction.entity.Enum.Person_type;
 import jakarta.annotation.Nonnull;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.backend.newbank.AccountTransaction.entity.Enum.Person_type;
 
 public record CadastroRequestDTO(
         @Nonnull

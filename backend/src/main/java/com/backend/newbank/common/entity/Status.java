@@ -1,4 +1,4 @@
-package com.backend.jalabank.common.entity;
+package com.backend.newbank.common.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

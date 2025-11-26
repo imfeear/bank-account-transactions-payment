@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.entity;
+package com.backend.newbank.AccountTransaction.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

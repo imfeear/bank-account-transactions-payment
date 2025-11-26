@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.DTO.AccountDTO;
+package com.backend.newbank.AccountTransaction.DTO.AccountDTO;
 
 import java.math.BigDecimal;
 

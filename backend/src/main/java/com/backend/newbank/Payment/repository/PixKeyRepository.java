@@ -1,7 +1,8 @@
-package com.backend.jalabank.Payment.repository;
+package com.backend.newbank.Payment.repository;
 
-import com.backend.jalabank.Payment.entity.PixKey;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.backend.newbank.Payment.entity.PixKey;
 
 import java.util.List;
 import java.util.Optional;

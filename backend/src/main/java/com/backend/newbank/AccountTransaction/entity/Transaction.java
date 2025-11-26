@@ -1,11 +1,12 @@
-package com.backend.jalabank.AccountTransaction.entity;
+package com.backend.newbank.AccountTransaction.entity;
 
-import com.backend.jalabank.common.entity.Status;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import com.backend.newbank.common.entity.Status;
 
 @Data
 @Entity

@@ -1,17 +1,17 @@
-package com.backend.jalabank.Payment.service;
+package com.backend.newbank.Payment.service;
 
-import com.backend.jalabank.AccountTransaction.entity.Account;
-import com.backend.jalabank.AccountTransaction.repository.AccountRepository;
-import com.backend.jalabank.AccountTransaction.service.TransactionService;
-import com.backend.jalabank.Payment.DTO.PaymentDTO;
-import com.backend.jalabank.Payment.entity.Payment;
-import com.backend.jalabank.Payment.repository.PaymentRepository;
-import com.backend.jalabank.Payment.util.FillData;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import com.backend.newbank.AccountTransaction.entity.Account;
+import com.backend.newbank.AccountTransaction.repository.AccountRepository;
+import com.backend.newbank.AccountTransaction.service.TransactionService;
+import com.backend.newbank.Payment.DTO.PaymentDTO;
+import com.backend.newbank.Payment.entity.Payment;
+import com.backend.newbank.Payment.repository.PaymentRepository;
+import com.backend.newbank.Payment.util.FillData;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

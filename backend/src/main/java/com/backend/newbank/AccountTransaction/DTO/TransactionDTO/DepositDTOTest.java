@@ -1,4 +1,4 @@
-package com.backend.jalabank.AccountTransaction.DTO.TransactionDTO;
+package com.backend.newbank.AccountTransaction.DTO.TransactionDTO;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;

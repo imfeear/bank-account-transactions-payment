@@ -1,4 +1,4 @@
-package com.backend.jalabank.Payment.DTO;
+package com.backend.newbank.Payment.DTO;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

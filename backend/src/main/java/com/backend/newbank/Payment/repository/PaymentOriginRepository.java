@@ -1,8 +1,9 @@
-package com.backend.jalabank.Payment.repository;
+package com.backend.newbank.Payment.repository;
 
-import com.backend.jalabank.Payment.entity.PaymentOrigin;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.backend.newbank.Payment.entity.PaymentOrigin;
 
 @Repository
 public interface PaymentOriginRepository extends JpaRepository <PaymentOrigin, Integer> {

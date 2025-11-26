@@ -1,9 +1,5 @@
-package com.backend.jalabank.error;
+package com.backend.newbank.error;
 
-import com.backend.jalabank.exception.EmptyListException;
-import com.backend.jalabank.exception.InsuficientFundsException;
-import com.backend.jalabank.exception.UserAlreadyExistsException;
-import com.backend.jalabank.exception.WrongPasswordException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -11,6 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.backend.newbank.exception.EmptyListException;
+import com.backend.newbank.exception.InsuficientFundsException;
+import com.backend.newbank.exception.UserAlreadyExistsException;
+import com.backend.newbank.exception.WrongPasswordException;
 
 import java.util.ArrayList;
 import java.util.List;

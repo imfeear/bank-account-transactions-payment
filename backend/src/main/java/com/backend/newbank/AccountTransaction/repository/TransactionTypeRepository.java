@@ -1,7 +1,9 @@
-package com.backend.jalabank.AccountTransaction.repository;
+package com.backend.newbank.AccountTransaction.repository;
 
-import com.backend.jalabank.AccountTransaction.entity.Transaction_Type;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.backend.newbank.AccountTransaction.entity.Transaction_Type;
+
 import java.util.Optional;
 
 public interface TransactionTypeRepository extends JpaRepository<Transaction_Type, Long> {

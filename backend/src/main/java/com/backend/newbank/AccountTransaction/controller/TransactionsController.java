@@ -1,8 +1,5 @@
-package com.backend.jalabank.AccountTransaction.controller;
+package com.backend.newbank.AccountTransaction.controller;
 
-import com.backend.jalabank.AccountTransaction.DTO.AccountDTO.DepositRequestDTO;
-import com.backend.jalabank.AccountTransaction.DTO.AccountDTO.BalanceDetailsDTO;
-import com.backend.jalabank.AccountTransaction.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +8,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.backend.newbank.AccountTransaction.DTO.AccountDTO.BalanceDetailsDTO;
+import com.backend.newbank.AccountTransaction.DTO.AccountDTO.DepositRequestDTO;
+import com.backend.newbank.AccountTransaction.service.AccountService;
+
 import java.math.BigDecimal;
 
 @RestController

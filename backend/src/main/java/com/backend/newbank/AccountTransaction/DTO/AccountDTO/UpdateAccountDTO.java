@@ -1,14 +1,15 @@
-package com.backend.jalabank.AccountTransaction.DTO.AccountDTO;
+package com.backend.newbank.AccountTransaction.DTO.AccountDTO;
 
 
 
 
-import com.backend.jalabank.AccountTransaction.entity.Enum.Person_type;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 import java.util.Date;
+
+import com.backend.newbank.AccountTransaction.entity.Enum.Person_type;
 
 public record UpdateAccountDTO(
         @Size(max = 64)

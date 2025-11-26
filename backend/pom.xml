@@ -11,9 +11,9 @@
 	</parent>
 
 	<groupId>com.backend</groupId>
-	<artifactId>jalabank</artifactId>
+	<artifactId>newbank</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>jalabank</name>
+	<name>newbank</name>
 	<description>A bank project</description>
 	<properties>
 		<java.version>21</java.version>

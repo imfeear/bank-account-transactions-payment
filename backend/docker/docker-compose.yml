@@ -1,4 +1,4 @@
-name: jalabank
+name: newbank
 services:
   postgres:
     image: postgres

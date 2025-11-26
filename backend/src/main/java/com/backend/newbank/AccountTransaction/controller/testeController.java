@@ -1,14 +1,5 @@
-package com.backend.jalabank.AccountTransaction.controller;
+package com.backend.newbank.AccountTransaction.controller;
 
-import com.backend.jalabank.AccountTransaction.DTO.NotificationDTO.ResponseNotificationDTO;
-import com.backend.jalabank.AccountTransaction.DTO.TransactionDTO.DepositDTOTest;
-import com.backend.jalabank.AccountTransaction.entity.Account;
-import com.backend.jalabank.AccountTransaction.repository.AccountRepository;
-import com.backend.jalabank.AccountTransaction.repository.NaturalPersonRepository;
-import com.backend.jalabank.AccountTransaction.repository.PersonRepository;
-import com.backend.jalabank.AccountTransaction.repository.UserRepository;
-import com.backend.jalabank.AccountTransaction.service.NotificationsService;
-import com.backend.jalabank.AccountTransaction.service.TransactionService;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +7,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
+
+import com.backend.newbank.AccountTransaction.DTO.NotificationDTO.ResponseNotificationDTO;
+import com.backend.newbank.AccountTransaction.DTO.TransactionDTO.DepositDTOTest;
+import com.backend.newbank.AccountTransaction.entity.Account;
+import com.backend.newbank.AccountTransaction.repository.AccountRepository;
+import com.backend.newbank.AccountTransaction.repository.NaturalPersonRepository;
+import com.backend.newbank.AccountTransaction.repository.PersonRepository;
+import com.backend.newbank.AccountTransaction.repository.UserRepository;
+import com.backend.newbank.AccountTransaction.service.NotificationsService;
+import com.backend.newbank.AccountTransaction.service.TransactionService;
 
 import java.util.HashMap;
 import java.util.List;

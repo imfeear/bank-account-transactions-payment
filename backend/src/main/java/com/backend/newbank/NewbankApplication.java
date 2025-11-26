@@ -1,4 +1,4 @@
-package com.backend.jalabank;
+package com.backend.newbank;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class JalabankApplication {
+public class NewbankApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JalabankApplication.class, args);
+		SpringApplication.run(NewbankApplication.class, args);
 	}
 
 }

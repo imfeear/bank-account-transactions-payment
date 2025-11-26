@@ -105,7 +105,7 @@ cd backend
 Create an `.env` file or update `application.properties`:
 
 ``` properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/jalabank
+spring.datasource.url=jdbc:postgresql://localhost:5432/newbank
 spring.datasource.username=postgres
 spring.datasource.password=yourpassword
 

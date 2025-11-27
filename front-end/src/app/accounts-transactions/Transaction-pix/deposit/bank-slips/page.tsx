@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Barcode } from "lucide-react";
 import { generateBarCode } from "@/lib/utils";
 
-export default function BankSlipPage() {
+function BankSlipPageContent() {
   const [amount, setAmount] = useState<string>("0,00");
   const [key, setKey] = useState<string>("00000");
   const [dueDate, setDueDate] = useState<string>("");
@@ -17,6 +17,7 @@ export default function BankSlipPage() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [copyMessage, setCopyMessage] = useState<string | null>(null);
+
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -33,20 +34,20 @@ export default function BankSlipPage() {
 
   const generateBarcode = async () => {
     try {
-      const accountAndAgency = localStorage.getItem("AccountAndAgency");
-  
-      // Verifica se `accountAndAgency` é nulo antes de executar o split
+      const accountAndAgency = typeof window !== "undefined"
+        ? localStorage.getItem("AccountAndAgency")
+        : null;
+
       if (!accountAndAgency) {
         throw new Error("Account and Agency not found in localStorage.");
       }
-  
+
       const [account, agency] = accountAndAgency.split("-");
-  
-      // Espera a resolução da Promise
+
       const response = await generateBarCode(account, agency, amount);
-  
+
       if (response && response.barcode) {
-        setBarcode(response.barcode); // Atualiza o estado com o barcode
+        setBarcode(response.barcode);
       } else {
         console.error("Erro: resposta inválida ou campo 'barcode' ausente.");
       }
@@ -57,25 +58,29 @@ export default function BankSlipPage() {
   };
 
   useEffect(() => {
-    if (searchParams) {
-      const amountParam = searchParams.get("amount");
-      const userKey = localStorage.getItem("userKey") || "00000";
-      const accountAndAgency =
-        localStorage.getItem("AccountAndAgency") || "0000-0000";
-  
-      // Verifica se accountAndAgency tem o formato esperado
-      const [userAgency, userAccount] = accountAndAgency.includes("-")
-        ? accountAndAgency.split("-")
-        : ["0000", "0000"];
-  
-      setAmount(amountParam || "0,00");
-      setKey(userKey);
-      setAgency(userAgency);
-      setAccount(userAccount);
-  
-      generateDueDate();
-      generateBarcode();
-    }
+    if (!searchParams) return;
+
+    const amountParam = searchParams.get("amount");
+    const userKey =
+      typeof window !== "undefined"
+        ? localStorage.getItem("userKey") || "00000"
+        : "00000";
+    const accountAndAgency =
+      typeof window !== "undefined"
+        ? localStorage.getItem("AccountAndAgency") || "0000-0000"
+        : "0000-0000";
+
+    const [userAgency, userAccount] = accountAndAgency.includes("-")
+      ? accountAndAgency.split("-")
+      : ["0000", "0000"];
+
+    setAmount(amountParam || "0,00");
+    setKey(userKey);
+    setAgency(userAgency);
+    setAccount(userAccount);
+
+    generateDueDate();
+    generateBarcode();
   }, [searchParams]);
 
   const copyCode = () => {
@@ -177,5 +182,13 @@ export default function BankSlipPage() {
         </Card>
       </div>
     </main>
+  );
+}
+
+export default function BankSlipPage() {
+  return (
+    <Suspense fallback={<div>Carregando boleto...</div>}>
+      <BankSlipPageContent />
+    </Suspense>
   );
 }

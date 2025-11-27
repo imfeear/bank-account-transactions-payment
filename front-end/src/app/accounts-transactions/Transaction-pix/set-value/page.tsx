@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, ChangeEvent, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { QrCode, ArrowLeft } from "lucide-react";
 
-export default function SetValue() {
+function SetValueContent() {
   const [amount, setAmount] = useState<string>("0,00");
   const [accountNumber, setAccountNumber] = useState<string>("");
   const [agencyNumber, setAgencyNumber] = useState<string>("");
@@ -25,11 +25,14 @@ export default function SetValue() {
       setAgencyNumber(agencyParam);
       fetchUserName(accountParam, agencyParam);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
   const fetchUserName = async (account: string, agency: string) => {
     try {
-      const token = localStorage.getItem("token");
+      const token =
+        typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
       const response = await fetch(
         `http://localhost:8081/account/user?accountNumber=${account}&agencyNumber=${agency}`,
         {
@@ -43,8 +46,8 @@ export default function SetValue() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Dados do usuário:", data); // Adicione este log para ver o retorno da API
-        setUserName(data.name || data.username || "Usuário não encontrado"); // Atualize com o nome correto
+        console.log("Dados do usuário:", data);
+        setUserName(data.name || data.username || "Usuário não encontrado");
       } else {
         console.error(
           "Erro ao buscar o nome do usuário: Resposta não OK",
@@ -61,6 +64,7 @@ export default function SetValue() {
   const handleAmountChange = (e: ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value.replace(/\D/g, "");
     if (value.length > 10) return;
+
     value = formatCurrency(parseFloat(value) / 100);
     setAmount(value);
     setErrorMessage(null);
@@ -118,8 +122,8 @@ export default function SetValue() {
               Nome: {userName || "Carregando..."}
             </p>
             <p className="text-black-600 mb-2">Conta: {accountNumber}</p>
-            <p className="text-black-600 mb-6">Agência: {agencyNumber}</p>{" "}
-            {/* Exibe o número da agência */}
+            <p className="text-black-600 mb-6">Agência: {agencyNumber}</p>
+
             <div className="flex items-center justify-center text-5xl font-bold mb-4">
               <span className="mr-2" style={{ color: "#76849eff" }}>
                 R$
@@ -135,9 +139,11 @@ export default function SetValue() {
                 }}
               />
             </div>
+
             {errorMessage && (
               <p className="text-red-500 text-sm mb-4">{errorMessage}</p>
             )}
+
             <Button
               className={`bg-[#76849eff] text-white w-full hover:bg-[#000000] transition-colors ${
                 loading ? "cursor-not-allowed opacity-50" : ""
@@ -151,5 +157,13 @@ export default function SetValue() {
         </Card>
       </div>
     </main>
+  );
+}
+
+export default function SetValue() {
+  return (
+    <Suspense fallback={<main className="p-6">Carregando valor...</main>}>
+      <SetValueContent />
+    </Suspense>
   );
 }

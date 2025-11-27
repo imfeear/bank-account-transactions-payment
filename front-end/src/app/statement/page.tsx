@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, CardHeader, CardContent } from "@/components/ui/card";
-import { Banknote, ArrowDownLeft, ArrowUpRight, HelpCircle } from "lucide-react"; // Adicionado ícone para transações desconhecidas
+import { Banknote, ArrowDownLeft, ArrowUpRight, HelpCircle } from "lucide-react";
 import { fetchTransactions } from "@/lib/utils";
 
 interface Transaction {
@@ -11,19 +11,23 @@ interface Transaction {
   amount: number;
   transactionDate: string;
   description: string;
-  originAccountNumber: number | null; // Pode ser null
-  destinationAccountNumber: number | null; // Pode ser null
+  originAccountNumber: number | null;
+  destinationAccountNumber: number | null;
   status: string;
 }
 
 export default function Statement() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [loading, setLoading] = useState(true);
-
-  const currentAccountDetails = localStorage.getItem("AccountAndAgency");
-  const currentAccountNumber = currentAccountDetails?.split("-")[0];
+  const [currentAccountNumber, setCurrentAccountNumber] = useState<string | null>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const currentAccountDetails = localStorage.getItem("AccountAndAgency");
+    const account = currentAccountDetails?.split("-")[0] || null;
+    setCurrentAccountNumber(account);
+
     const fetchTransactionsData = async () => {
       try {
         const transactionsData = await fetchTransactions();
@@ -49,13 +53,12 @@ export default function Statement() {
 
   const getTransactionStyle = (transaction: Transaction) => {
     const isOutgoing =
-      transaction.originAccountNumber?.toString() === currentAccountNumber; // Envio
+      transaction.originAccountNumber?.toString() === currentAccountNumber;
     const isIncoming =
-      transaction.destinationAccountNumber?.toString() === currentAccountNumber; // Recebimento
+      transaction.destinationAccountNumber?.toString() === currentAccountNumber;
 
     const type = transaction.transactionType?.toUpperCase();
 
-    // Lógica para tratar tipos de transações conhecidos
     if (type === "DEPOSITO") {
       return {
         color: "text-green-500",
@@ -92,7 +95,6 @@ export default function Statement() {
       }
     }
 
-    // Caso o tipo não seja reconhecido, trata como desconhecido
     return {
       color: "text-gray-500",
       icon: HelpCircle,
@@ -145,7 +147,7 @@ export default function Statement() {
                             </div>
                           </div>
                           <p className={`font-semibold ${color}`}>
-                            {color === "text-green-500" ? "+" : "-"} R${" "}
+                            {color === "text-green-500" ? "+" : "-"} R{"$ "}
                             {transaction.amount.toFixed(2)}
                           </p>
                         </div>

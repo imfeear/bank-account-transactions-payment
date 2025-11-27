@@ -1,22 +1,21 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Barcode, ArrowLeft } from 'lucide-react';
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Barcode, ArrowLeft } from "lucide-react";
 
-export default function PayBoletoPage() {
-  const [barcode, setBarcode] = useState<string>('');
-  const [amount, setAmount] = useState<string>('0,00');
+function PayBoletoPageContent() {
+  const [barcode, setBarcode] = useState<string>("");
+  const [amount, setAmount] = useState<string>("0,00");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const searchParams = useSearchParams();
   const router = useRouter();
 
   useEffect(() => {
-    // Captura o valor do depósito da URL
-    const amountParam = searchParams.get('amount');
+    const amountParam = searchParams.get("amount");
     if (amountParam) {
       setAmount(amountParam);
     }
@@ -24,7 +23,7 @@ export default function PayBoletoPage() {
 
   const handleBarcodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBarcode(e.target.value);
-    setErrorMessage(null); // Clear error message when input changes
+    setErrorMessage(null);
   };
 
   const handleBack = () => {
@@ -33,7 +32,7 @@ export default function PayBoletoPage() {
 
   const handlePayBoleto = async () => {
     if (barcode.length !== 47) {
-      setErrorMessage('O código do boleto deve ter 47 dígitos.');
+      setErrorMessage("O código do boleto deve ter 47 dígitos.");
       return;
     }
 
@@ -41,41 +40,48 @@ export default function PayBoletoPage() {
     setErrorMessage(null);
 
     try {
-      const token = localStorage.getItem('token');
+      const token =
+        typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
       if (!token) {
-        setErrorMessage('Usuário não autenticado. Faça login novamente.');
+        setErrorMessage("Usuário não autenticado. Faça login novamente.");
         setIsLoading(false);
         return;
       }
 
-      // Realiza a chamada à API com o valor dinâmico e o código do boleto
-      const response = await fetch('http://localhost:8081/transactions/deposit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          barcode,
-          amount: parseFloat(amount.replace(/\./g, '').replace(',', '.')), // Transforma o valor em número
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:8081/transactions/deposit",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            barcode,
+            amount: parseFloat(
+              amount.replace(/\./g, "").replace(",", ".")
+            ),
+          }),
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Erro ao processar o pagamento do boleto. Tente novamente.');
+        throw new Error(
+          "Erro ao processar o pagamento do boleto. Tente novamente."
+        );
       }
 
-      alert('Pagamento do boleto realizado com sucesso!');
+      alert("Pagamento do boleto realizado com sucesso!");
 
-      // Aguarda 2 segundos e redireciona para a página inicial
       setTimeout(() => {
-        router.push('/home'); // Redireciona para a home
+        router.push("/home");
       }, 2000);
     } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(error.message);
       } else {
-        setErrorMessage('Erro inesperado. Tente novamente.');
+        setErrorMessage("Erro inesperado. Tente novamente.");
       }
     } finally {
       setIsLoading(false);
@@ -84,13 +90,18 @@ export default function PayBoletoPage() {
 
   return (
     <main className="flex-grow container mx-auto p-8">
-      <div className="flex items-center mb-6 cursor-pointer" onClick={handleBack}>
+      <div
+        className="flex items-center mb-6 cursor-pointer"
+        onClick={handleBack}
+      >
         <ArrowLeft className="w-5 h-5 text-blue-600" />
         <span className="ml-2 text-blue-600 font-medium">Voltar</span>
       </div>
 
       <div className="flex flex-col items-start mb-6">
-        <h1 className="text-3xl font-semibold">Pagamento de Boleto Genérico</h1>
+        <h1 className="text-3xl font-semibold">
+          Pagamento de Boleto Genérico
+        </h1>
       </div>
 
       <div className="flex justify-start">
@@ -122,15 +133,27 @@ export default function PayBoletoPage() {
               onClick={handlePayBoleto}
               disabled={isLoading}
               className={`bg-green-600 text-white w-full hover:bg-green-700 transition-colors ${
-                isLoading ? 'cursor-not-allowed opacity-50' : ''
+                isLoading ? "cursor-not-allowed opacity-50" : ""
               }`}
-              style={{ padding: '0.75rem 1rem', fontSize: '1rem', height: '60px' }}
+              style={{
+                padding: "0.75rem 1rem",
+                fontSize: "1rem",
+                height: "60px",
+              }}
             >
-              {isLoading ? 'Processando...' : 'Pagar Boleto'}
+              {isLoading ? "Processando..." : "Pagar Boleto"}
             </Button>
           </CardContent>
         </Card>
       </div>
     </main>
+  );
+}
+
+export default function PayBoletoPage() {
+  return (
+    <Suspense fallback={<div>Carregando pagamento de boleto...</div>}>
+      <PayBoletoPageContent />
+    </Suspense>
   );
 }

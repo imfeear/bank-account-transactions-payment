@@ -28,12 +28,12 @@ export default function AppPaymentPageCode() {
             }
 
             router.push('/payments/payment-code/information-payment');
-        } catch (error) {
-            alert(`Erro ao processar o pagamento: ${error.message}`);
-        } finally {
+            } catch (error: any) {
+            alert(`Erro ao processar o pagamento: ${error?.message || ''}`);
+            } finally {
             setIsLoading(false);
-        }
-    };
+            }
+        };
 
     return (
         <main className="flex-1 p-8">

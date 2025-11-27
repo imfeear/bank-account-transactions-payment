@@ -9,8 +9,14 @@ import { Label } from "@/components/ui/label";
 import { format, isValid } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 
+type PaymentDetails = {
+  barcode: string;
+  dueDate: string;
+  value: number;
+};
+
 export default function AppPaymentPageCodeInformation() {
-  const [paymentDetails, setPaymentDetails] = useState(null);
+  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
   const [paymentDate, setPaymentDate] = useState('hoje');
   const [selectedDate, setSelectedDate] = useState('');
   const [minDate, setMinDate] = useState('');
@@ -33,10 +39,10 @@ export default function AppPaymentPageCodeInformation() {
           headers: { 'Content-Type': 'application/json' },
         });
 
-        if (response.ok) {
-          const data = await response.json();
-          setPaymentDetails(data);
-        } else {
+          if (response.ok) {
+            const data = (await response.json()) as PaymentDetails;
+            setPaymentDetails(data);
+          } else {
           alert('Erro ao buscar informações do pagamento.');
           router.push('/payments/payment-code'); // Redireciona em caso de erro no servidor
         }
@@ -80,10 +86,12 @@ export default function AppPaymentPageCodeInformation() {
     }
   };
 
-  const formatDisplayDate = (dateString) => {
-    const date = new Date(dateString);
-    return isValid(date) ? format(date, 'dd/MM/yyyy', { locale: ptBR }) : '';
-  };
+    const formatDisplayDate = (dateString?: string | null) => {
+      if (!dateString) return '';
+
+      const date = new Date(dateString);
+      return isValid(date) ? format(date, 'dd/MM/yyyy', { locale: ptBR }) : '';
+    };
 
   if (isLoading) {
     return <p>Carregando informações...</p>;
